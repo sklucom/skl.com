@@ -55,15 +55,18 @@
     let user = "";
 
     function init() {
-      let ref = new URLSearchParams(window.location.search).get("ref");
-      if (ref) localStorage.setItem("skl_ref", ref);
-      let name = localStorage.getItem("skl_name");
-      if (name) {
-        user = name;
-        showMainScreen();
-        fetchCoins(name);
-      }
-    }
+  document.getElementById("loginScreen").style.display = "block"; // <-- FIXED
+
+  let ref = new URLSearchParams(window.location.search).get("ref");
+  if (ref) localStorage.setItem("skl_ref", ref);
+
+  let name = localStorage.getItem("skl_name");
+  if (name) {
+    user = name;
+    showMainScreen();
+    fetchCoins(name);
+  }
+}
 
     function login() {
       let name = document.getElementById("nameInput").value;
